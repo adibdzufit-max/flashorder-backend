@@ -1,0 +1,42 @@
+{
+  "name": "hotmas-backend",
+  "version": "1.0.0",
+  "description": "Backend MySQL untuk 3 portal Hotmas Restaurant (booking, customer tracking, KDS/Kaunter)",
+  "type": "commonjs",
+  "main": "src/server.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "db:schema": "node scripts/run-sql.js db/schema.sql",
+    "db:seed": "node scripts/run-sql.js db/seed.sql",
+    "db:reset": "npm run db:schema && npm run db:seed",
+    "create-staff": "node scripts/create-staff.js",
+    "smoke": "node scripts/smoke-test.js",
+    "test:e2e": "node scripts/e2e-test.js",
+    "test:stream": "node scripts/stream-test.js",
+    "test:contract": "node scripts/portal-contract.js",
+    "test:portal": "node scripts/portal-browser-test.js",
+    "test": "node scripts/smoke-test.js && node scripts/e2e-test.js && node scripts/stream-test.js && node scripts/portal-contract.js && node scripts/portal-browser-test.js"
+  },
+  "devDependencies": {
+    "jsdom": "^27.0.0"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.11.0"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "jsdom": "^30.1.1"
+  }
+}
